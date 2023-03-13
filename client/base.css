@@ -1,9 +1,16 @@
 html {
     scroll-behavior: smooth;
     font-family: Helvetica, sans-serif, Arial;
+    /* height: 250%; */
 }
 
 body {
+    /* position: fixed; */
+    /* top: 0; */
     margin: 0 auto;
-    background-color: #222;
+    background-image: url("public/HOW\ TO.png");
+    /* height: 300%; */
+    background-position: center;
+    background-size: cover;
+    position: relative;
 }

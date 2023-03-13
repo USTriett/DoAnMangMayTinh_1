@@ -2,9 +2,9 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="../client/public/favicon.ico" />
+    <link rel="icon" type="image/svg+xml" href="./public/broken-heart.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>ChatBot openAI API</title>
+    <title>Love Expert</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="base.css">
     <link rel="stylesheet"
@@ -12,39 +12,80 @@
   </head>
   <body>
     <div id="app">
+      <!-- <div>
+        
+        <h1 class="title-of-chat">Love Expert</h1>
+        <p class="introduction">
+          You have just broken up with your soulmate <br>
+          I am here to help you over come your hardest time <br>
+          CHAT WITH ME.
+        </p>
+      </div> -->
+
+      <div class = "nav">
+        <a href="main.html"><img class="logo" src="public/Red and Black Minimal Love Code Logo (1).png"></a>
+        <ul class = "nav-list-2">
+            <li class = "nav-item">
+                <a class="item-1" href="aboutus.html"><strong>About Us</strong></a> 
+            <li class = "nav-item ">
+              <a class="item-2" href="https://openai.com/"><strong>OpenAI</strong></a> 
+            </li>
+            <li class = "nav-item">
+              <a class= "item-3-main" href="index.html"><strong>Test our Chatbot</strong></a>
+            </li>
+        </ul>
+    </div>
+
         <!-- Message Container -->
+        
         <div class="outer-container">
+
+          <div><form id="fileForm" style="position: fixed; display: none;" action="http://localhost:5000/up" method="POST" enctype="multipart/form-data" onsubmit="submitForm(event, this)" >
+
+            <input type="file" name="filename" /> <br>
+            <input type="submit" value="Upload" />
+    
+          </form></div>
           <div class="chat-container">
             <!-- Messages -->
+            
             <div id="chatbox">
               <h5 style="text-align: center;" id="chat-timestamp"></h5>
               <p id="botStarterMessage" class="botText"><span>Loading...</span></p>
             </div>
 
-            <!-- User input box -->
             <div class="chat-bar-input-block">
+            <i id="chat-icon" class="aufile fa fa-file-audio-o" aria-hidden="true"></i>
+
               <div id="userInput">
                 <input id="textInput" class="input-box"
                   type="text" name="msg"
                   placeholder="Tap 'Enter' to send a message">
                 <p></p>
-              </div>
 
+
+              </div>
+              
               <div class="chat-bar-icons">
+                <i id="chat-icon"  class="microphone fa fa-microphone" aria-hidden="true"></i>
                 <i id="chat-icon" style="color: crimson;"
                   class="fa fa-fw fa-heart"
                   onclick="heartButton()"></i>
                 <i id="chat-icon" style="color: #333;" class="fa
                   fa-fw fa-send"
                   onclick="sendButton()"></i>
+                 
               </div>
             </div>
 
             <div id="chat-bar-bottom">
               <p></p>
             </div>
+            <!-- User input box -->
+            
 
           </div>
+          
         </div>
 
     </div>
