@@ -15,7 +15,7 @@ const configuration = new Configuration({
   apiKey: process.env.OPENAI_API_KEY,
 });
 const openai = new OpenAIApi(configuration);
-
+const Key = process.env.OPENAI_API_KEY;
 
 var storage = multer.diskStorage({
   destination : (req , file , res)=>{
@@ -50,6 +50,52 @@ var upload = multer({ storage : storage });
 const app = express()
 app.use(cors())
 app.use(express.json())
+
+app.get('/img', async (req, res) => {
+  res.status(200).send({
+    message: 'Hello from CodeX!'
+  })
+})
+
+
+app.post('/img', async (req, res) => {
+  try {
+    const prompt = req.body.prompt;
+    const size = req.body.size;
+
+    const imageSize =
+    size === 'small' ? '256x256' : size === 'medium' ? '512x512' : '1024x1024';
+    
+    const response = await openai.createImage({
+      prompt,
+      n: 1,
+      size: imageSize,
+    });
+   
+      const imageUrl = response.data.data[0].url;
+   
+      res.status(200).json({
+        success: true,
+        data: imageUrl,
+      });
+    } catch (error) {
+      if (error.response) {
+        console.log(error.response.status);
+        console.log(error.response.data);
+    } else {
+      console.log(error.message);
+    }
+      
+    res.status(400).json({
+      success: false,
+      error: 'The image could not be generated',
+    });
+  }
+})
+
+
+
+
 
 app.get('/up', async (req, res) => {
   res.status(200).send({

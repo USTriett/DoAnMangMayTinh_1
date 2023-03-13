@@ -70,7 +70,7 @@ const getResponse = async(e) => {
   var userHtml = '';
   if(fileInput == true)
   {
-    fileInput == false;
+    fileInput = false;
     userText = WhisperText
   }
   else if(voiceInput == true)
@@ -89,6 +89,12 @@ const getResponse = async(e) => {
   {
       heartClicked = false;
       userText = 'I Love You';
+  }
+
+  if(userText == "GENERATE IMAGE")
+  {
+    window.location.replace('imgGen.html');
+    return;
   }
 
   $("#textInput").val("");

@@ -1,0 +1,32 @@
+body{
+    text-align: center;
+    background-color: darkgray;
+}
+
+#prompt
+{
+    height: 25px;
+}
+
+.form-control{
+    display: inline-block;
+    
+}
+
+#size{
+    height: 30px;
+    cursor: pointer;
+}
+
+.btn{
+    width: 100px;
+    height: 30px;
+    background-color: red;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+}
+
+.btn:hover{
+    opacity: 0.6;
+}
