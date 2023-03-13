@@ -107,8 +107,8 @@ app.post('/up' , upload.single("filename") , async(req , res)=>{
   // try {
 const text = req.body.request;
 const formData = new FormData();
-const filePath = path.join(__dirname, '../audioUpload', req.file.filename);
-formData.append("model", model);
+const filePath = path.join(__dirname, '../audioUpload', req.file.filename); // get file upload
+formData.append("model", model); //model: whisper-1
 formData.append("file", fs.createReadStream(filePath));
 
 
@@ -123,9 +123,10 @@ axios
   console.log("Speech-to-text");
   
     res.status(200).send({
-    bot: response.data.text
-  })
-  // fs.unlinkSync(filePath);
+    bot: response.data.text// send text response to client
+    
+    })
+  fs.unlinkSync(filePath);
 })
   // } catch (error) {
   //   console.error(error)
