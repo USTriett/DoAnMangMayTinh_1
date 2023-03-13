@@ -96,7 +96,7 @@ const getResponse = async(e) => {
   console.log(userText);
   generate_prompt = generate_prompt + '\nYou' + userText;
   document.getElementById("chat-bar-bottom").scrollIntoView(true);
-  const textResponse = await fetch('https://tvtericbot.onrender.com/', {
+  const textResponse = await fetch('http://localhost:5000', {
     method: 'POST',
         headers: {
             'Content-Type': 'application/json',

@@ -7,14 +7,15 @@ import path from "path";
 import axios from "axios";
 
 import FormData from "form-data";
-
-const Key = "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";
-const configuration = new Configuration({
-  apiKey: "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",
-});
-
-
 import multer from "multer";
+
+dotenv.config();
+console.log(process.env.OPENAI_API_KEY)
+const configuration = new Configuration({
+  apiKey: process.env.OPENAI_API_KEY,
+});
+const openai = new OpenAIApi(configuration);
+
 
 var storage = multer.diskStorage({
   destination : (req , file , res)=>{
@@ -44,7 +45,7 @@ var upload = multer({ storage : storage });
 
 // const formData = new FormData();
 
-const openai = new OpenAIApi(configuration);
+
 
 const app = express()
 app.use(cors())
